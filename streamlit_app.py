@@ -50,6 +50,14 @@ div.stButton > button[kind="primary"]{background:#164878;border-color:#164878;co
 .f2-evidence td{padding:8px 12px;color:#193653;border-bottom:1px solid #EBF0F5}
 .f20-caveat{font-size:11px;color:#65778A;border-left:3px solid #BACBD9;padding-left:10px;margin:3px 0}
 @media (max-width:750px){.f20-banner{padding:24px 20px;min-height:0}.f20-head{font-size:25px}}
+
+/* F5A.1: Scene-2 only: concise evidence grid. Do not tighten global Streamlit widget spacing. */
+.f5-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 10px;margin:4px 0 0}
+.f5-evidence-cell{border:1px solid #E0E8F0;background:#F8FAFC;border-radius:8px;padding:7px 11px;min-width:0}
+.f5-evidence-label{font-size:10px;font-weight:850;letter-spacing:.06em;color:#436381;margin-bottom:3px}
+.f5-evidence-value{font-size:12px;line-height:1.35;color:#173553;overflow-wrap:anywhere}
+.f5-source-note{font-size:10px;line-height:1.35;color:#667A8E;margin:5px 0 0}
+@media(max-width:760px){.f5-evidence-grid{grid-template-columns:1fr}}
 </style>'''
 F2_DATA = json.loads('{"dataset_version":"F2.0","synthetic":true,"no_real_customer_data":true,"notes":["Scores are editorial test fixtures and are not calculated by the E5 engine.","Only Northstar has a financial proxy; blank fields are not zero.","Events are invented, not verified external facts.","The demo currently displays 4 management priorities, which is an editorial agenda count, not the number of ACT_NOW-quadrant dots."],"relationships":[{"relationship_id":"NSTAR","relationship":"Northstar Mobility","attention_score":82,"urgency_score":87,"management_category":"Growth","proposed_action":"Lending wallet expansion","forecast_capex_usdm":4000,"assumed_debt_funding_pct":25,"assumed_bank_funding_pct":60,"fictional_event":"CAPEX financing review","illustrative_review_window":"2027-Q1","proposed_owner":"Coverage","evidence_to_validate":"Validate CAPEX, debt mix and lender participation","confidence":"HIGH","evidence_type":"ASSUMPTION","priority_quadrant":"ACT_NOW","lending_proxy_usdm":600.0,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"HLINE","relationship":"Harbourline Energy","attention_score":73,"urgency_score":68,"management_category":"Relationship","proposed_action":"Deposit retention","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Hypothetical treasury mandate review","illustrative_review_window":"2026-Q4","proposed_owner":"Treasury","evidence_to_validate":"Confirm deposit maturity ladder and expected outflows","confidence":"MEDIUM","evidence_type":"ASSUMPTION","priority_quadrant":"ACT_NOW","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"SUMMIT","relationship":"Summit Infrastructure","attention_score":65,"urgency_score":59,"management_category":"Risk","proposed_action":"Credit review","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Illustrative covenant monitoring window","illustrative_review_window":"2026-Q4","proposed_owner":"Credit / Risk","evidence_to_validate":"Validate covenant headroom and maturity schedule","confidence":"MEDIUM","evidence_type":"ASSUMPTION","priority_quadrant":"ACT_NOW","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"MERID","relationship":"Meridian Logistics","attention_score":56,"urgency_score":75,"management_category":"Relationship","proposed_action":"Coverage enhancement","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Hypothetical overseas expansion announcement","illustrative_review_window":"2026-Q4","proposed_owner":"Coverage","evidence_to_validate":"Confirm event and coverage ownership","confidence":"MEDIUM","evidence_type":"ASSUMPTION","priority_quadrant":"HIGH_URGENCY","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"BLUE","relationship":"Bluecrest Digital","attention_score":69,"urgency_score":33,"management_category":"Growth","proposed_action":"Treasury deep dive","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Hypothetical operating cash increase","illustrative_review_window":"2027-Q1","proposed_owner":"Treasury","evidence_to_validate":"Validate operating cash and serviceable liquidity","confidence":"LOW","evidence_type":"ASSUMPTION","priority_quadrant":"HIGH_ATTENTION","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"WEST","relationship":"Westbridge Consumer","attention_score":52,"urgency_score":36,"management_category":"Strategic","proposed_action":"Portfolio monitoring","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Illustrative trading update","illustrative_review_window":"2027-Q1","proposed_owner":"Portfolio Strategy","evidence_to_validate":"Revisit next review if signal changes","confidence":"LOW","evidence_type":"ASSUMPTION","priority_quadrant":"MONITOR","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"ATLAS","relationship":"Atlas Renewables","attention_score":44,"urgency_score":62,"management_category":"Risk","proposed_action":"Financing event review","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Hypothetical refinancing calendar","illustrative_review_window":"2026-Q4","proposed_owner":"Coverage","evidence_to_validate":"Confirm refinancing dates and funding need","confidence":"MEDIUM","evidence_type":"ASSUMPTION","priority_quadrant":"HIGH_URGENCY","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"STER","relationship":"Sterling Healthcare","attention_score":38,"urgency_score":30,"management_category":"Strategic","proposed_action":"Portfolio monitoring","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"No material simulated event","illustrative_review_window":"2027-Q1","proposed_owner":"Portfolio Strategy","evidence_to_validate":"Maintain routine monitoring","confidence":"LOW","evidence_type":"ASSUMPTION","priority_quadrant":"MONITOR","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"CALD","relationship":"Caldera Industrials","attention_score":59,"urgency_score":42,"management_category":"Growth","proposed_action":"Cross-border expansion","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Hypothetical subsidiary establishment","illustrative_review_window":"2027-Q1","proposed_owner":"Cross-border Coverage","evidence_to_validate":"Validate entity structure and banking needs","confidence":"LOW","evidence_type":"ASSUMPTION","priority_quadrant":"MONITOR","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false},{"relationship_id":"ORION","relationship":"Orion Shipping","attention_score":42,"urgency_score":46,"management_category":"Relationship","proposed_action":"Coverage enhancement","forecast_capex_usdm":null,"assumed_debt_funding_pct":null,"assumed_bank_funding_pct":null,"fictional_event":"Illustrative facility renewal","illustrative_review_window":"2027-Q1","proposed_owner":"Coverage","evidence_to_validate":"Confirm utilization and relationship coverage","confidence":"LOW","evidence_type":"ASSUMPTION","priority_quadrant":"MONITOR","lending_proxy_usdm":null,"source_status":"FICTIONAL_DEMO_NOT_SOURCED","persisted":false}]}')
 RELATIONSHIPS = F2_DATA['relationships']
@@ -79,7 +87,7 @@ def _relationship_selector():
 
 
 def _evidence_panel(r):
-    # Explicit UNKNOWN for absent numeric evidence; never infer zero or fabricate metrics.
+    """Compact six-field, two-column grid for Scene 2, preserving all synthetic evidence."""
     capex = r.get('forecast_capex_usdm')
     if capex is None:
         proxy = 'Not estimated — financial inputs unavailable'
@@ -87,16 +95,21 @@ def _evidence_panel(r):
         proxy = ('USD {:,.0f}m illustrative notional proxy'.format(r['lending_proxy_usdm'])
                  if r.get('lending_proxy_usdm') is not None else 'Not estimated')
     entries = [
-        ('MANAGEMENT SIGNAL', f"{escape(r['management_category'])} · {escape(r['proposed_action'])}"),
-        ('ATTENTION × URGENCY', f"{r['attention_score']} × {r['urgency_score']} · {escape(r['priority_quadrant'].replace('_',' '))}"),
-        ('FICTIONAL EVENT', escape(r['fictional_event'])),
-        ('EVIDENCE TO VALIDATE', escape(r['evidence_to_validate'])),
-        ('ACCOUNTABLE FUNCTION', escape(r['proposed_owner'])),
-        ('FINANCIAL EVIDENCE', escape(proxy)),
+        ('MANAGEMENT SIGNAL', f"{r['management_category']} · {r['proposed_action']}"),
+        ('ATTENTION × URGENCY', f"{r['attention_score']} × {r['urgency_score']} · {r['priority_quadrant'].replace('_',' ')}"),
+        ('FICTIONAL EVENT', r['fictional_event']),
+        ('EVIDENCE TO VALIDATE', r['evidence_to_validate']),
+        ('ACCOUNTABLE FUNCTION', r['proposed_owner']),
+        ('FINANCIAL EVIDENCE', proxy),
     ]
-    body=''.join(f'<tr><th>{k}</th><td>{v}</td></tr>' for k,v in entries)
-    st.markdown('<div class="f2-evidence"><table>'+body+'</table></div>',unsafe_allow_html=True)
-    st.caption('Evidence type: ASSUMPTION · Source: FICTIONAL DEMO, NOT SOURCED · Confidence: editorial fixture, not verified fact')
+    cells = ''.join(
+        '<div class="f5-evidence-cell"><div class="f5-evidence-label">'+escape(str(k))+'</div>'
+        '<div class="f5-evidence-value">'+escape(str(v))+'</div></div>'
+        for k,v in entries
+    )
+    st.markdown('<div class="f5-evidence-grid">'+cells+'</div>'
+                '<div class="f5-source-note">Evidence type: ASSUMPTION · Source: FICTIONAL DEMO, NOT SOURCED · '
+                'Confidence: editorial fixture, not verified fact</div>',unsafe_allow_html=True)
 
 
 def _scatter():
